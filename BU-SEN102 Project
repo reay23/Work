@@ -1,0 +1,166 @@
+My portfolio:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+  <header>
+    <h1>Ojurereoluwa Ogunmilua</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I'm a web developer passionate about building interactive websites.</p>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project">
+      <h3>Portfolio Website</h3>
+      <p>A clean and responsive portfolio site.</p>
+    </div>
+
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <form>
+      <input type="text" placeholder="Name" required>
+      <input type="email" placeholder="Email" required>
+      <textarea placeholder="Your message"></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Ojurereoluwa Ogunmilua</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+// Toggle dark mode
+document.getElementById('themeToggle').addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
+});
+
+// Show confirmation on form submit
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent real form submission
+
+  // Show confirmation message
+  document.getElementById('confirmation').classList.remove('hidden');
+
+  // Optionally, reset the form
+  this.reset();
+});
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  background-color: bisque;
+}
+
+header {
+  background-color: #333;
+  color: white;
+  padding: 1em;
+  text-align: center;
+}
+
+nav a {
+  color: white;
+  margin: 0 1em;
+  text-decoration: none;
+}
+
+section {
+  padding: 2em;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input, textarea {
+  margin: 0.5em 0;
+  padding: 0.5em;
+}
+
+button {
+  background-color: #333;
+  color: white;
+  padding: 0.5em;
+  border: none;
+}
+
+Weather:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Weather App</title>
+  <link rel="stylesheet" href="weather.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Weather App</h1>
+    <input type="text" id="city" placeholder="Enter city name">
+    <button onclick="getWeather()">Get Weather</button>
+    <div id="weatherResult"></div>
+  </div>
+  <script src="weather.js"></script>
+</body>
+</html>
+
+async function getWeather() {
+  const city = document.getElementById('city').value;
+  const apiKey = 'YOUR_API_KEY'; // Replace with your OpenWeatherMap API key
+  const url = 'https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric';
+
+  const res = await fetch(url);
+  const data = await res.json();
+
+  if (data.cod === 200) {
+    const weatherHtml = `
+      <h2>${data.name}, ${data.sys.country}</h2>
+      <p>Temperature: ${data.main.temp} °C</p>
+      <p>Weather: ${data.weather[0].main}</p>
+    `;
+    document.getElementById('weatherResult').innerHTML = weatherHtml;
+  } else {
+    document.getElementById('weatherResult').innerHTML = <p>City not found.</p>;
+  }
+}
+
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 2em;
+  background: #f0f0f0;
+}
+
+.container {
+  background: white;
+  padding: 2em;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+input, button {
+  padding: 0.5em;
+  margin: 0.5em;
+}
