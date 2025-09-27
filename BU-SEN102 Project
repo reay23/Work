@@ -1,0 +1,84 @@
+ARRAY_METHOD:
+let movies = ['Heartstopper','Young royals','Heartbreak high','Love simon','Love victor'];
+movies.push('Young hearts');
+console.log(movies);
+movies.pop()
+console.log(movies);
+let joined = movies.join('<');
+console.log(joined);
+
+ARROW_FUNCTION:
+const subtract = (a, b) => a - b; 
+console.log(subtract(10, 5));
+
+CLASSES:
+class Person {
+  constructor(firstName, lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+ greet() {
+  return 'Hello my name is ${this.firstName} ${this.lastName}.';
+ }
+}
+const person = new Person('jane', 'Doe');
+console.log(person.greet());
+
+DESTRUCTURING:
+const person = {
+  name: 'Grace Hopper',
+  birth: { year: 1906, city: 'New York' },
+  languages: ['COBOL', 'Assembly']
+};
+
+const { name, birth: { year }, languages: [firstLang] } = person;
+console.log(name, year, firstLang);
+
+const settings = { theme: 'dark' };
+const { theme, fontSize = 14 } = settings;
+console.log(theme, fontSize);
+
+const [a, b, ...rest] = [10, 20, 30, 40];
+console.log(a, b, rest);
+
+SPREAD_OPERATOR:
+const nums1 = [1, 2, 3];
+const nums2 = [...nums1, 4, 5];
+console.log('nums2:', nums2);
+
+const obj1 = { a: 1, b: 2 };
+const obj2 = { ...obj1, c: 3 };
+console.log('obj2:', obj2);
+
+function sum(...args) {
+  return args.reduce((acc, n) => acc + n, 0);
+}
+console.log('Sum:', sum(1, 2, 3, 4));
+
+TENARY_OPERATOR:
+let age = 20; let message = age >= 18 ? 'You can vote.' : 'You cannot vote.';
+console.log(message);
+
+VARIABLES:
+let name = 'John'; 
+const age = 25;
+let isStudent = true; 
+let hobbies = ['reading', 'coding'];
+let person = { name: 'John', age: 25 };
+
+MODULES:
+utils.js
+export const PI = 3.14;
+
+export function add(a, b) {
+  return a + b;
+}
+export default function greet(name = 'Developer') {
+  return 'Hello, ${name}!';
+}
+index.js
+import greet, { add, PI } from './utils';
+
+console.log(greet('Ada'));
+console.log('Add:', add(2, 3));
+console.log('PI:', PI);
