@@ -1,0 +1,2150 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>rere's fits</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="node_modules/gsap/dist/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="website.js"></script>
+  <script src="cart.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-blue-200 m-0 min-h-screen px-6 py-8">
+  <div id="menu">
+  <nav class="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-7xl h-16 px-6 flex items-center justify-between rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl shadow-blck/20">
+  <div>
+    <img id="logo" src="/images/reres_fits_logo_bold.png" class="w-20 h-20 rounded-35 shadow-md bg-white" alt="Logo">
+    <script>
+    gsap.from("#logo", {
+     opacity: 0,
+     scale: 0.5,
+     rotation: 360,
+     duration: 2,
+     ease: "bounce.out"
+});
+</script>
+  </div>
+  <div class="text-gray-800 font-serif">
+     <h1 id="hero-text" class="text-2xl font-bold">WELCOME TO MY STORE</h1>
+     </div>
+  <div class="flex gap-6 text-sm">
+    <select id="page-select" class="px-3 py-2 rounded border text-sm p-6 border-0 rounded-full">
+      <option value="#menu" class="hover:text-white-900 font-semibold">Menu</option>
+      <option value="#about" class="hover:text-white-900 font-semibold">About</option>
+      <option value="#product" class="hover:text-white-900 font-semibold">Products</option>
+      <option value="#contact" class="hover:text-white-900 font-semibold">Contact Me</option>
+      <option value="cart.html" class="hover:text-white-900 font-semibold">Cart</option>
+      <option value="checkout.html" class="hover:text-white-900 font-semibold">Checkout</option>
+    </select>
+  </div>
+</nav>
+</div>
+<a href="cart.html" 
+   class="floating-cart fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 bg-blue-500 hover:bg-blue-400 rounded-full shadow-lg shadow-blue-500/30 transition-transform hover:scale-105">
+  <span class="text-xl">🛍️</span>
+  <span id="floating-cart-count" 
+        class="absolute -top-1.5 -right-1.5 bg-white text-blue-600 text-xs font-bold font-['Manrope'] w-5 h-5 rounded-full flex items-center justify-center border-2 border-[#0B1220]">
+    0
+  </span>
+</a>
+<script>
+    function updateCartCount() {
+  const totalItems = getCart().reduce((sum, item) => sum + item.qty, 0);
+
+  const navCount = document.getElementById('nav-cart-count');
+  if (navCount) navCount.textContent = totalItems;
+
+  const floatingCount = document.getElementById('floating-cart-count');
+  if (floatingCount) floatingCount.textContent = totalItems;
+}
+</script>
+<section class="flex flex-col md:flex-row items-center gap-8 px-8 py-16 bg-blue-200">
+  <div class="flex flex-col md:flex-row items-center gap-8">
+  <div class="flex-1 text-black-400">
+    <h1 class="text-4xl font-bold mb-4">Welcome to My Store</h1>
+    <p class="text-lg mb-6 text-black-50">Shop the latest trends, delivered to your door. Your already picked outfits. <br/>Your outfit, your style, effortless and free, <br/>every step you take says "JUST WATCH ME.", colors that pop, a fit thats tight,<br/> you didn't dress-up--you just got it right.</p>
+    <a href="#product" class="inline-block bg-white text-blue-600 font-semibold px-6 py-3 rounded-full shadow-lg hover:scale-105 transition-transform">
+      Shop Now
+    </a>
+  </div>
+  <div class="flex-1 relative">
+    <img id="hero-img" src="images/3d aimation cartoon.jpg" class="w-full max-w-lg mx-auto [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent),linear-gradient(to_bottom,transparent,black_15%,black_90%,transparent)]
+    [mask-composite:intersect]
+    [-webkit-mask-composite:source-in]" alt="Shopping illustration">
+  </div>
+  </div>
+  <script>
+gsap.from("#hero-img", {
+  opacity: 0,
+  scale: 0.8,
+  duration: 1,
+  ease: "back.out(1.4)"
+});
+
+gsap.from("section h1, section p", {
+  opacity: 0,
+  x: -30,
+  duration: 0.8,
+  stagger: 0.15,
+  ease: "power2.out"
+});
+  </script>
+  </section>
+  <section id="about" class="flex flex-col md:flex-row items-center gap-8 px-8 py-16 bg-blue-200">
+
+  <div class="pointer-events-none rounded-full blur-3xl"></div>
+
+  <div class="max-w-4xl">
+
+    <p class="about-eyebrow font-['Manrope'] text-semibold md:text-sm uppercase tracking-[0.4em] text-black mb-6">
+      The Story
+    </p>
+
+    <h2 class="overflow-hidden mb-10">
+      <span class="about-line-inner block font-['Fraunces'] text-semibold text-[#F5F0E8] text-3xl md:text-5xl lg:text-6xl font-medium leading-[1.15]">
+        Welcome to Rere's Fits.
+      </span>
+    </h2>
+
+    <div class="space-y-6 font-['Manrope'] text-black text-base md:text-lg leading-relaxed">
+
+      <p class="about-para">
+        Where your imagination on fashion comes to life. Hi, I'm Rere — welcome to my store.
+        Below, you'll find catalogues of already-curated outfits, made for anyone who doesn't
+        quite know how to style themselves yet.
+      </p>
+
+      <p class="about-para">
+        We also offer <span class="text-black font-medium">personally curated outfits</span>.
+        Tell us what you want, or send an inspo photo, and we'll get it made to your taste —
+        no detail left out.
+      </p>
+
+      <blockquote class="about-quote relative py-6 md:py-8">
+        <p class="font-['Fraunces'] italic text-white text-bold text-2xl md:text-4xl leading-snug">
+          I have a love for fashion and expressing yourself through your dressing —
+          I call it
+          <span class="relative inline-block text-gray-800 not-italic font-medium">
+            "Expressive Dressing"
+            <span class="about-underline absolute left-0 -bottom-1 h-[3px] w-full bg-blue-400 origin-left scale-x-0"></span>
+          </span>.
+        </p>
+        <p class="mt-4 font-['Manrope'] not-italic text-gray-800 text-sm md:text-base max-w-xl">
+          Where your outfit says a lot about you: how you layer your colors, how you put
+          materials together, and how your look stands out from everyone else's.
+        </p>
+      </blockquote>
+
+      <p class="about-para">
+        This is a new generation of fashion. Not just a basic top and jeans — no.
+        It's the detailing, the color combinations, and the layering that makes it stand out.
+      </p>
+
+      <p class="about-cta font-['Manrope'] text-blue text-bold text-lg md:text-xl pt-4">
+        Take a scroll through my work — I really hope you enjoy what you see.
+        And most importantly, you shop with us. Thank you! <span class="inline-block">😁</span>
+      </p>
+
+    </div>
+  </div>
+</section>
+<script>
+  function initAboutAnimations() {
+    const aboutSection = document.getElementById('about');
+    if (typeof gsap === 'undefined' || !aboutSection) return;
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.set('#about .about-line-inner', { yPercent: 110 });
+
+    const aboutTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: aboutSection,
+        start: 'top 75%',
+        once: true
+      }
+    });
+
+    aboutTl
+      .from('#about .about-eyebrow', {
+        opacity: 0, y: 20, duration: 0.6, ease: 'power2.out'
+      })
+      .to('#about .about-line-inner', {
+        yPercent: 0, duration: 1, ease: 'power4.out'
+      }, '-=0.2')
+      .from('#about .about-para', {
+        opacity: 0, y: 24, filter: 'blur(6px)',
+        duration: 0.9, ease: 'power3.out', stagger: 0.15
+      }, '-=0.4')
+      .from('#about .about-quote', {
+        opacity: 0, scale: 0.92, duration: 0.8, ease: 'back.out(1.6)'
+      }, '-=0.3')
+      .fromTo('#about .about-underline',
+        { scaleX: 0 },
+        { scaleX: 1, duration: 0.7, ease: 'power2.inOut' },
+      '-=0.4')
+      .from('#about .about-cta', {
+        opacity: 0, y: 16, duration: 0.6, ease: 'power2.out'
+      }, '-=0.2');
+  }
+
+  document.addEventListener('DOMContentLoaded', initAboutAnimations);
+</script>
+</section>
+
+    <h2 id="product" class="text-5xl font-extrabold text-center mb-4">
+        Products
+    </h2>
+
+
+<br>
+
+<h1 class="font-semibold text-xl flex justify-center">
+    MALE SECTION
+</h1>
+
+<div id="product-list" class="max-w-6xl mx-auto px-6 py-16">
+
+    <p id="menscasual" class="text-3xl font-semibold text-center mb-12 text-gray-900">
+        Casuals!
+    </p>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+
+        
+        <div class="gallery-item product-card bg-white rounded-2xl shadow-lg overflow-hidden">
+            <div class="relative overflow-hidden h-64 bg-gray-100">
+                <img src="images/casual men 1.jpg" alt="Denim fit"
+                    class="product-img w-full h-full object-contain transition-transform duration-500 ease-out">
+            </div>
+
+            <div class="p-4">
+                <p class="text-lg font-semibold text-gray-900">#250,000</p>
+
+                <div class="product-desc overflow-hidden" style="max-height:0;opacity:0;">
+                    <p class="text-sm text-gray-600 pb-3">
+                        The full "Denim" fit — jeans, Smartwatch, Denim Jacket, Tank Top and New Balances.
+                    </p>
+                </div>
+                <br/>
+                <button 
+                class="add-to-cart-btn bg-blue-500 hover:bg-blue-400 text-[#0B1220] font-['Manrope'] font-semibold px-6 py-2.5 rounded-full transition-colors"
+                data-id="prod_001"
+                data-name="casual men Set"
+                data-price="250000"
+                data-image="images/casual men 1.jpg"
+                data-size="M">
+                Add to Cart
+            </button>
+            </div>
+        </div>
+
+        
+        <div class="gallery-item product-card bg-white rounded-2xl shadow-lg overflow-hidden">
+            <div class="relative overflow-hidden h-64 bg-gray-100">
+                <img src="images/casual men 2.jpg" alt="Calm fit"
+                    class="product-img w-full h-full object-contain transition-transform duration-500 ease-out">
+            </div>
+
+            <div class="p-4">
+                <p class="text-lg font-semibold text-gray-900">#520,000</p>
+
+                <div class="product-desc overflow-hidden" style="max-height:0;opacity:0;">
+                    <p class="text-sm text-gray-600 pb-3">
+                        The full "Calm" fit — Baggy jeans, shirt, belt and Sneakers.
+                    </p>
+                </div>
+                <br/>
+                <button 
+                class="add-to-cart-btn bg-blue-500 hover:bg-blue-400 text-[#0B1220] font-['Manrope'] font-semibold px-6 py-2.5 rounded-full transition-colors"
+                data-id="prod_002"
+                data-name="casual men Set"
+                data-price="520000"
+                data-image="images/casual men 2.jpg"
+                data-size="M">
+                Add to Cart
+            </button>
+            </div>
+        </div>
+
+        
+        <div class="gallery-item product-card bg-white rounded-2xl shadow-lg overflow-hidden">
+            <div class="relative overflow-hidden h-64 bg-gray-100">
+                <img src="images/casual men 3.jpg" alt="Calm fit"
+                    class="product-img w-full h-full object-contain transition-transform duration-500 ease-out">
+            </div>
+
+            <div class="p-4">
+                <p class="text-lg font-semibold text-gray-900">#500,000</p>
+
+                <div class="product-desc overflow-hidden" style="max-height:0;opacity:0;">
+                    <p class="text-sm text-gray-600 pb-3">
+                        The full "Cool" fit — Baggy jeans, shirt, and Sneakers.
+                    </p>
+                </div>
+<br/>
+                <button class="add-to-cart-btn bg-blue-500 hover:bg-blue-400 text-[#0B1220] font-['Manrope'] font-semibold px-6 py-2.5 rounded-full transition-colors"
+                    data-id="prod_003"
+                    data-name="casual men set"
+                    data-price="500000"
+                    data-image="images/casual men 3.jpg"
+                    data-size="M">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+
+        
+        <div class="gallery-item product-card bg-white rounded-2xl shadow-lg overflow-hidden">
+            <div class="relative overflow-hidden h-64 bg-gray-100">
+                <img src="images/casual men 4.jpg" alt="Calm fit"
+                    class="product-img w-full h-full object-contain transition-transform duration-500 ease-out">
+            </div>
+
+            <div class="p-4">
+                <p class="text-lg font-semibold text-gray-900">#600,000</p>
+
+                <div class="product-desc overflow-hidden" style="max-height:0;opacity:0;">
+                    <p class="text-sm text-gray-600 pb-3">
+                        The full "Cozy" fit — Baggy jeans, belt, shades, rings, layered neck piece, stockens, snapback, tie, sweat shirt and Trainers.
+                    </p>
+                </div>
+                <br/>
+                <button 
+  class="add-to-cart-btn bg-blue-500 hover:bg-blue-400 text-[#0B1220] font-['Manrope'] font-semibold px-6 py-2.5 rounded-full transition-colors"
+  data-id="prod_004"
+  data-name="casual men Set"
+  data-price="600000"
+  data-image="images/casual men 4.jpg"
+  data-size="M">
+  Add to Cart
+</button>
+            </div>
+        </div>
+
+        
+        <div class="gallery-item product-card bg-white rounded-2xl shadow-lg overflow-hidden">
+            <div class="relative overflow-hidden h-64 bg-gray-100">
+                <img src="images/casual men 5.jpg" alt="Calm fit"
+                    class="product-img w-full h-full object-contain transition-transform duration-500 ease-out">
+            </div>
+
+            <div class="p-4">
+                <p class="text-lg font-semibold text-gray-900">#630,000</p>
+
+                <div class="product-desc overflow-hidden" style="max-height:0;opacity:0;">
+                    <p class="text-sm text-gray-600 pb-3">
+                        The full "Hood" fit — Baggy jeans, white tee, cropped shirt, chain, rolex, bracelet and New Balances.
+                    </p>
+                </div>
+                <br/>
+                <button 
+  class="add-to-cart-btn bg-blue-500 hover:bg-blue-400 text-[#0B1220] font-['Manrope'] font-semibold px-6 py-2.5 rounded-full transition-colors"
+  data-id="prod_005"
+  data-name="Casual men Set"
+  data-price="630000"
+  data-image="images/casual men 5.jpg"
+  data-size="M">
+  Add to Cart
+</button>
+            </div>
+        </div>
+
+        
+        <div class="gallery-item product-card bg-white rounded-2xl shadow-lg overflow-hidden">
+            <div class="relative overflow-hidden h-64 bg-gray-100">
+                <img src="images/casual men 6.jpg" alt="Calm fit"
+                    class="product-img w-full h-full object-contain transition-transform duration-500 ease-out">
+            </div>
+
+            <div class="p-4">
+                <p class="text-lg font-semibold text-gray-900">#570,000</p>
+
+                <div class="product-desc overflow-hidden" style="max-height:0;opacity:0;">
+                    <p class="text-sm text-gray-600 pb-3">
+                        The full "Semi-Corporate" fit — Bootcut jeans, cropped shirt, belt, snapback, jean chain and Treekers.
+                    </p>
+                </div>
+                <br/>
+                <button 
+  class="add-to-cart-btn bg-blue-500 hover:bg-blue-400 text-[#0B1220] font-['Manrope'] font-semibold px-6 py-2.5 rounded-full transition-colors"
+  data-id="prod_006"
+  data-name="Casual men Set"
+  data-price="570000"
+  data-image="images/casual men 6.jpg"
+  data-size="M">
+  Add to Cart
+</button>
+            </div>
+        </div>
+
+        
+        <div class="gallery-item product-card bg-white rounded-2xl shadow-lg overflow-hidden">
+            <div class="relative overflow-hidden h-64 bg-gray-100">
+                <img src="images/casual men 7.jpg" alt="Calm fit"
+                    class="product-img w-full h-full object-contain transition-transform duration-500 ease-out">
+            </div>
+
+            <div class="p-4">
+                <p class="text-lg font-semibold text-gray-900">$59.99</p>
+
+                <div class="product-desc overflow-hidden" style="max-height:0;opacity:0;">
+                    <p class="text-sm text-gray-600 pb-3">
+                        The full "Chill" fit — Baggy jeans, shirt, shades, stockens and Trainers.
+                    </p>
+                </div>
+                <br/>
+                       <button 
+  class="add-to-cart-btn bg-blue-500 hover:bg-blue-400 text-[#0B1220] font-['Manrope'] font-semibold px-6 py-2.5 rounded-full transition-colors"
+  data-id="prod_007"
+  data-name="Casual men Set"
+  data-price="570000"
+  data-image="images/casual men 7.jpg"
+  data-size="M">
+  Add to Cart
+</button>
+            </div>
+        </div>
+
+        
+        <div class="gallery-item product-card bg-white rounded-2xl shadow-lg overflow-hidden">
+            <div class="relative overflow-hidden h-64 bg-gray-100">
+                <img src="images/casual men 8.jpg" alt="Calm fit"
+                    class="product-img w-full h-full object-contain transition-transform duration-500 ease-out">
+            </div>
+
+            <div class="p-4">
+                <p class="text-lg font-semibold text-gray-900">#690,000</p>
+
+                <div class="product-desc overflow-hidden" style="max-height:0;opacity:0;">
+                    <p class="text-sm text-gray-600 pb-3">
+                        The full "Brunch With Bros" fit — Baggy jeans, cropped shirt, belt, cream tee, cross chain, shades, rolex, charms and New Balances.
+                    </p>
+                </div>
+                <br/>
+                       <button 
+  class="add-to-cart-btn bg-blue-500 hover:bg-blue-400 text-[#0B1220] font-['Manrope'] font-semibold px-6 py-2.5 rounded-full transition-colors"
+  data-id="prod_008"
+  data-name="Casual men Set"
+  data-price="690000"
+  data-image="images/casual men 8.jpg"
+  data-size="M">
+  Add to Cart
+</button>
+            </div>
+        </div>
+
+    </div>
+
+<br/>
+<br/>
+<br/>
+
+<section id="corporate-products" class="max-w-7xl mx-auto px-6 py-24">
+
+    <h2 id="menscorporate" class="text-5xl font-extrabold text-center mb-4">
+        Corporate Styles
+    </h2>
+
+    <p class="text-center text-gray-500 mb-16">
+        Dress smart. Stay classy.
+    </p>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+
+        <div class="corporate-card bg-white rounded-3xl shadow-xl overflow-hidden">
+            <div class="overflow-hidden h-80 bg-gray-100">
+                <img src="images/corperate men 1.jpg"
+                    class="corporate-img w-full h-full object-contain transition duration-500">
+            </div>
+
+            <div class="p-5">
+                <h3 class="font-bold text-lg">Executive Fit</h3>
+                <p class="text-blue-600 font-bold mt-1">#780,000</p>
+
+                <div class="corporate-desc overflow-hidden max-h-0 opacity-0">
+                    <p class="text-gray-600 mt-3">
+                        Premium blazer, tailored trousers, white shirt, tie, rolex, shades and leather shoes.
+                    </p>
+                </div>
+                <br/>
+                       <button 
+  class="add-to-cart-btn bg-blue-500 hover:bg-blue-400 text-[#0B1220] font-['Manrope'] font-semibold px-6 py-2.5 rounded-full transition-colors"
+  data-id="prod_009"
+  data-name="Corporate men Set"
+  data-price="780000"
+  data-image="images/corperate men 1.jpg"
+  data-size="M">
+  Add to Cart
+</button>
+
+            </div>
+        </div>
+
+        <div class="corporate-card bg-white rounded-3xl shadow-xl overflow-hidden">
+            <div class="overflow-hidden h-80 bg-gray-100">
+                <img src="images/corperate men 2.jpg"
+                    class="corporate-img w-full h-full object-contain transition duration-500">
+            </div>
+
+            <div class="p-5">
+                <h3 class="font-bold text-lg">Modern Office</h3>
+                <p class="text-blue-600 font-bold">#820,000</p>
+
+                <div class="corporate-desc overflow-hidden max-h-0 opacity-0">
+                    <p class="text-gray-600 mt-3">
+                        Semi corporate office look with tie, shirt, suit pant and leather shoes.
+                    </p>
+                </div>
+                <br/>
+                       <button 
+  class="add-to-cart-btn bg-blue-500 hover:bg-blue-400 text-[#0B1220] font-['Manrope'] font-semibold px-6 py-2.5 rounded-full transition-colors"
+  data-id="prod_010"
+  data-name="Corporate men Set"
+  data-price="820000"
+  data-image="images/corperate men 2.jpg"
+  data-size="M">
+  Add to Cart
+</button>
+
+            </div>
+        </div>
+
+        <div class="corporate-card bg-white rounded-3xl shadow-xl overflow-hidden">
+            <div class="overflow-hidden h-80 bg-gray-100">
+                <img src="images/corperate men 3.jpg"
+                    class="corporate-img w-full h-full object-contain transition duration-500">
+            </div>
+
+            <div class="p-5">
+                <h3 class="font-bold text-lg">Business Elite</h3>
+                <p class="text-blue-600 font-bold">#750,000</p>
+
+                <div class="corporate-desc overflow-hidden max-h-0 opacity-0">
+                    <p class="text-gray-600 mt-3">
+                        Sharp fit for meetings and presentations. Comprises of - suit pant, shades, leather shoes, polo and watch.
+                    </p>
+                </div>
+                <br/>
+                       <button 
+  class="add-to-cart-btn bg-blue-500 hover:bg-blue-400 text-[#0B1220] font-['Manrope'] font-semibold px-6 py-2.5 rounded-full transition-colors"
+  data-id="prod_011"
+  data-name="Corporate men Set"
+  data-price="750000"
+  data-image="images/corperate men 3.jpg"
+  data-size="M">
+  Add to Cart
+</button>
+   </div>
+        </div>
+
+        <div class="corporate-card bg-white rounded-3xl shadow-xl overflow-hidden">
+            <div class="overflow-hidden h-80 bg-gray-100">
+                <img src="images/corperate men 4.jpg"
+                    class="corporate-img w-full h-full object-contain transition duration-500">
+            </div>
+
+            <div class="p-5">
+                <h3 class="font-bold text-lg">Gentleman's Pick</h3>
+                <p class="text-blue-600 font-bold">#800,000</p>
+
+                <div class="corporate-desc overflow-hidden max-h-0 opacity-0">
+                    <p class="text-gray-600 mt-3">
+                        Luxury business wear with polished accessories. Comprises of - tie, waist coat, suit pant, belt, leather shoes, and shirt
+                    </p>
+                </div>
+                <br/>
+                              <button 
+  class="add-to-cart-btn bg-blue-500 hover:bg-blue-400 text-[#0B1220] font-['Manrope'] font-semibold px-6 py-2.5 rounded-full transition-colors"
+  data-id="prod_012"
+  data-name="Corporate men Set"
+  data-price="880000"
+  data-image="images/corperate men 4.jpg"
+  data-size="M">
+  Add to Cart
+</button>
+
+            </div>
+        </div>
+
+        <div class="corporate-card bg-white rounded-3xl shadow-xl overflow-hidden">
+            <div class="overflow-hidden h-80 bg-gray-100">
+                <img src="images/corperate men 5.jpg"
+                    class="corporate-img w-full h-full object-contain transition duration-500">
+            </div>
+
+            <div class="p-5">
+                <h3 class="font-bold text-lg">Minimal Office</h3>
+                <p class="text-blue-600 font-bold">#760,000</p>
+
+                <div class="corporate-desc overflow-hidden max-h-0 opacity-0">
+                    <p class="text-gray-600 mt-3">
+                        Minimalist formal outfit for everyday office wear. Comprises of - suit pant, belt, rolex, leather shoes, and shirt
+                    </p>
+                </div>
+                <br/>
+                              <button 
+  class="add-to-cart-btn bg-blue-500 hover:bg-blue-400 text-[#0B1220] font-['Manrope'] font-semibold px-6 py-2.5 rounded-full transition-colors"
+  data-id="prod_013"
+  data-name="Corporate men Set"
+  data-price="760000"
+  data-image="images/corperate men 5.jpg"
+  data-size="M">
+  Add to Cart
+</button>
+            </div>
+        </div>
+
+        <div class="corporate-card bg-white rounded-3xl shadow-xl overflow-hidden">
+            <div class="overflow-hidden h-80 bg-gray-100">
+                <img src="images/corperate men 6.jpg"
+                    class="corporate-img w-full h-full object-contain transition duration-500">
+            </div>
+
+            <div class="p-5">
+                <h3 class="font-bold text-lg">Classic Executive</h3>
+                <p class="text-blue-600 font-bold">#900,000</p>
+
+                <div class="corporate-desc overflow-hidden max-h-0 opacity-0">
+                    <p class="text-gray-600 mt-3">
+                        Elegant fit. Comprises of watch, loafers, shades, suit pant, shirt and tie.
+                    </p>
+                </div>
+                <br/>
+                              <button 
+  class="add-to-cart-btn bg-blue-500 hover:bg-blue-400 text-[#0B1220] font-['Manrope'] font-semibold px-6 py-2.5 rounded-full transition-colors"
+  data-id="prod_014"
+  data-name="Corporate men Set"
+  data-price="900000"
+  data-image="images/corperate men 6.jpg"
+  data-size="M">
+  Add to Cart
+</button>
+
+            </div>
+        </div>
+
+        <div class="corporate-card bg-white rounded-3xl shadow-xl overflow-hidden">
+            <div class="overflow-hidden h-80 bg-gray-100">
+                <img src="images/corperate men 7.jpg"
+                    class="corporate-img w-full h-full object-contain transition duration-500">
+            </div>
+
+            <div class="p-5">
+                <h3 class="font-bold text-lg">Luxury Office</h3>
+                <p class="text-blue-600 font-bold">#890,000</p>
+
+                <div class="corporate-desc overflow-hidden max-h-0 opacity-0">
+                    <p class="text-gray-600 mt-3">
+                        Not too casual and not too serious fit. Comprises of - shirt, belt, rolex, suit pant, leather shoes, and shades.
+                    </p>
+                </div>
+                <br/>
+                              <button 
+  class="add-to-cart-btn bg-blue-500 hover:bg-blue-400 text-[#0B1220] font-['Manrope'] font-semibold px-6 py-2.5 rounded-full transition-colors"
+  data-id="prod_015"
+  data-name="Corporate men Set"
+  data-price="890000"
+  data-image="images/corperate men 7.jpg"
+  data-size="M">
+  Add to Cart
+</button>
+
+            </div>
+        </div>
+
+        <div class="corporate-card bg-white rounded-3xl shadow-xl overflow-hidden">
+            <div class="overflow-hidden h-80 bg-gray-100">
+                <img src="images/corperate men 8.jpg"
+                    class="corporate-img w-full h-full object-contain transition duration-500">
+            </div>
+
+            <div class="p-5">
+                <h3 class="font-bold text-lg">Premium Boss</h3>
+                <p class="text-blue-600 font-bold">#950,000</p>
+
+                <div class="corporate-desc overflow-hidden max-h-0 opacity-0">
+                    <p class="text-gray-600 mt-3">
+                        Premium business suit with complete accessories.
+                    </p>
+                </div>
+                <br/>
+                              <button 
+  class="add-to-cart-btn bg-blue-500 hover:bg-blue-400 text-[#0B1220] font-['Manrope'] font-semibold px-6 py-2.5 rounded-full transition-colors"
+  data-id="prod_016"
+  data-name="Corporate men Set"
+  data-price="950000"
+  data-image="images/corperate men 8.jpg"
+  data-size="M">
+  Add to Cart
+</button>
+
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.utils.toArray(".corporate-card").forEach((card, i) => {
+
+    gsap.from(card,{
+        opacity:0,
+        y:120,
+        rotateY:i%2===0?20:-20,
+        scale:.8,
+        duration:1,
+        ease:"power4.out",
+        scrollTrigger:{
+            trigger:card,
+            start:"top 85%",
+            toggleActions:"play none none reverse"
+        }
+    });
+
+});
+
+document.querySelectorAll(".corporate-card").forEach(card=>{
+
+    const img=card.querySelector(".corporate-img");
+    const desc=card.querySelector(".corporate-desc");
+
+    card.addEventListener("mouseenter",()=>{
+
+        img.classList.remove("object-contain");
+        img.classList.add("object-cover");
+
+        gsap.to(img,{
+            scale:1.15,
+            duration:.5
+        });
+
+        gsap.to(desc,{
+            maxHeight:150,
+            opacity:1,
+            duration:.35
+        });
+
+        gsap.to(card,{
+            y:-10,
+            boxShadow:"0 30px 60px rgba(0,0,0,.25)",
+            duration:.35
+        });
+
+    });
+
+    card.addEventListener("mouseleave",()=>{
+
+        gsap.to(img,{
+            scale:1,
+            duration:.5,
+            onComplete(){
+                img.classList.remove("object-cover");
+                img.classList.add("object-contain");
+            }
+        });
+
+        gsap.to(desc,{
+            maxHeight:0,
+            opacity:0,
+            duration:.3
+        });
+
+        gsap.to(card,{
+            y:0,
+            boxShadow:"0 10px 20px rgba(0,0,0,.15)",
+            duration:.35
+        });
+
+    });
+
+});
+document.querySelectorAll(".corporate-cart").forEach(button=>{
+
+    button.addEventListener("click",()=>{
+
+        addToCart(button.dataset.productId);
+
+    });
+
+});
+</script>
+
+</div>
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+
+document.querySelectorAll(".gallery-item").forEach((item, i) => {
+    gsap.from(item, {
+        opacity: 0,
+        y: i % 2 === 0 ? 80 : -80,
+        scale: 0.9,
+        duration: 0.9,
+        ease: "power3.out",
+        scrollTrigger: {
+            trigger: item,
+            start: "top 88%",
+            toggleActions: "play none none reverse"
+        }
+    });
+});
+
+document.querySelectorAll(".product-card").forEach(card => {
+
+    const img = card.querySelector(".product-img");
+    const desc = card.querySelector(".product-desc");
+
+    card.addEventListener("mouseenter", () => {
+
+        img.classList.remove("object-contain");
+        img.classList.add("object-cover");
+
+        gsap.to(img, {
+            scale: 1.15,
+            duration: .5
+        });
+
+        gsap.to(desc, {
+            maxHeight: 200,
+            opacity: 1,
+            duration: .4
+        });
+
+    });
+
+    card.addEventListener("mouseleave", () => {
+
+        gsap.to(img, {
+            scale: 1,
+            duration: .5,
+            onComplete() {
+                img.classList.remove("object-cover");
+                img.classList.add("object-contain");
+            }
+        });
+
+        gsap.to(desc, {
+            maxHeight: 0,
+            opacity: 0,
+            duration: .3
+        });
+
+    });
+
+});
+
+async function addToCart(productId) {
+
+    const session = await requireLogin();
+
+    if (!session) return;
+
+    const {
+        data: existing,
+        error
+    } = await supabase
+        .from("cart_items")
+        .select("*")
+        .eq("user_id", session.user.id)
+        .eq("product_id", productId)
+        .maybeSingle();
+
+    if (error) {
+        alert(error.message);
+        return;
+    }
+
+    if (existing) {
+
+        const {
+            error: updateError
+        } = await supabase
+            .from("cart_items")
+            .update({
+                quantity: existing.quantity + 1
+            })
+            .eq("id", existing.id);
+
+        if (updateError) {
+            alert(updateError.message);
+            return;
+        }
+    } else {
+        const {
+            error: insertError
+        } = await supabase
+            .from("cart_items")
+            .insert([{
+                user_id: session.user.id,
+                product_id: productId,
+                quantity: 1
+            }]);
+        if (insertError) {
+            alert(insertError.message);
+            return;
+        }
+    }
+    alert("Added to cart!");
+}
+document.querySelectorAll(".add-to-cart-btn").forEach(btn => {
+
+    btn.addEventListener("click", () => {
+        addToCart(btn.dataset.productId);
+    });
+
+});
+</script>
+<br/>
+<section id="trad-section" class="py-24 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6">
+        <h2 id="menstrad" class="text-5xl font-bold text-center">
+            Traditional Styles
+        </h2>
+        <p class="text-center text-gray-500 mt-4 mb-16">
+            Traditional outfits made for every occasion.
+        </p>
+    </div>
+    <div class="p-6 flex flex-col flex-1 justify-between">
+        <div id="trad-track" class="flex gap-8 w-max px-10">
+ 
+            <div
+                class="trad-card w-[260px] min-h-[420px] flex flex-col shrink-0 rounded-3xl overflow-hidden bg-white shadow-2xl"
+>
+                <div class="overflow-hidden">
+                    <img
+                        src="images/trad men 1.jpg"
+                        alt="Mannequin wearing a dark indigo embroidered traditional agbada with circular purple and gold motifs, standing on a white tiled floor in a bright boutique with a large leaning mirror and beige curtains; the display feels elegant and regal"
+                        class="trad-img h-[240px] w-full object-cover">
+                </div>
+                <div class="p-5 flex flex-col flex-1">
+                    <h3 class="font-bold text-xl">
+                        Royal Agbada
+                    </h3>
+                    <p class="text-blue-300 font-bold text-lg mt-1.5">
+                        #800,000
+                    </p>
+                    <p class="text-gray-600 text-sm mt-2">
+                        Complete luxury Agbada with premium accessories.
+                    </p>
+                    <br/>
+                                  <button 
+  class="add-to-cart-btn bg-blue-500 hover:bg-blue-400 text-[#0B1220] font-['Manrope'] font-semibold px-6 py-2.5 rounded-full transition-colors"
+  data-id="prod_017"
+  data-name="trad men Set"
+  data-price="800000"
+  data-image="images/trad men 1.jpg"
+  data-size="M">
+  Add to Cart
+</button>
+                </div>
+            </div>
+            <div
+                class="trad-card min-h-[420px] flex flex-col w-[260px] shrink-0 rounded-3xl overflow-hidden bg-white shadow-2xl"
+>
+                <div class="overflow-hidden">
+                    <img
+                        src="images/trad men 2.jpg"
+                        class="trad-img h-[240px] w-full object-cover">
+                </div>
+                <div class="p-5 flex flex-col flex-1">
+                    <h3 class="font-bold text-xl">
+                        Luxury Senator
+                    </h3>
+                    <p class="text-blue-300 font-bold text-lg mt-1.5">
+                        #750,000
+                    </p>
+                    <p class="text-gray-600 text-sm mt-2">
+                        Classic senator wear for weddings and events.
+                    </p>
+                    <br/>
+                                             <button 
+  class="add-to-cart-btn bg-blue-500 hover:bg-blue-400 text-[#0B1220] font-['Manrope'] font-semibold px-6 py-2.5 rounded-full transition-colors"
+  data-id="prod_018"
+  data-name="trad men Set"
+  data-price="750000"
+  data-image="images/trad men 2.jpg"
+  data-size="M">
+  Add to Cart
+</button>
+                </div>
+            </div>
+            <div
+                class="trad-card w-[260px] min-h-[420px] flex flex-col shrink-0 rounded-3xl overflow-hidden bg-white shadow-2xl"
+>
+                <div class="overflow-hidden">
+                    <img
+                        src="images/trad men 3.jpg"
+                        class="trad-img h-[240px] w-full object-cover">
+                </div>
+                <div class="p-5 flex flex-col flex-1">
+                    <h3 class="font-bold text-xl">
+                        Native Elite
+                    </h3>
+                    <p class="text-blue-300 font-bold text-lg mt-1.5">
+                        #820,000
+                    </p>
+                    <p class="text-gray-600 text-sm mt-2">
+                        Modern traditional attire with premium finishing.
+                    </p>
+                    <br/>
+                                             <button 
+  class="add-to-cart-btn bg-blue-500 hover:bg-blue-400 text-[#0B1220] font-['Manrope'] font-semibold px-6 py-2.5 rounded-full transition-colors"
+  data-id="prod_019"
+  data-name="trad men Set"
+  data-price="820000"
+  data-image="images/trad men 3.jpg"
+  data-size="M">
+  Add to Cart
+</button>
+                </div>
+            </div>
+           <div
+                class="trad-card w-[260px] min-h-[420px] flex flex-col shrink-0 rounded-3xl overflow-hidden bg-white shadow-2xl"
+>
+                <div class="overflow-hidden">
+                    <img
+                        src="images/trad men 4.jpg"
+                        class="trad-img h-[240px] w-full object-cover">
+                </div>
+                <div class="p-5 flex flex-col flex-1">
+                    <h3 class="font-bold text-xl">
+                        Premium Chief
+                    </h3>
+                    <p class="text-blue-300 font-bold text-lg mt-1.5">
+                        #850,000
+                    </p>
+                    <p class="text-gray-600 text-sm mt-2">
+                        Elegant chief wear with complete accessories.
+                    </p>
+                    <br/>
+                                             <button 
+  class="add-to-cart-btn bg-blue-500 hover:bg-blue-400 text-[#0B1220] font-['Manrope'] font-semibold px-6 py-2.5 rounded-full transition-colors"
+  data-id="prod_020"
+  data-name="trad men Set"
+  data-price="850000"
+  data-image="images/trad men 4.jpg"
+  data-size="M">
+  Add to Cart
+</button>
+                </div>
+            </div>
+<div
+    class="trad-card w-[260px] min-h-[420px] flex flex-col shrink-0 rounded-3xl overflow-hidden bg-white shadow-2xl"
+>
+    <div class="overflow-hidden">
+        <img
+            src="images/trad men 5.jpg"
+            class="trad-img h-[240px] w-full object-cover">
+    </div>
+    <div class="p-5 flex flex-col flex-1">
+        <h3 class="font-bold text-xl">
+            Modern Heritage
+        </h3>
+        <p class="text-blue-300 font-bold text-lg mt-1.5">
+            #880,000
+        </p>
+        <p class="text-gray-600 text-sm mt-2">
+            A perfect blend of tradition and modern fashion.
+        </p>
+        <br/>
+                                 <button 
+  class="add-to-cart-btn bg-blue-500 hover:bg-blue-400 text-[#0B1220] font-['Manrope'] font-semibold px-6 py-2.5 rounded-full transition-colors"
+  data-id="prod_021"
+  data-name="trad men Set"
+  data-price="880000"
+  data-image="images/trad men 5.jpg"
+  data-size="M">
+  Add to Cart
+</button>
+    </div>
+</div>
+<div
+    class="trad-card w-[260px] min-h-[420px] flex flex-col shrink-0 rounded-3xl overflow-hidden bg-white shadow-2xl">
+    <div class="overflow-hidden">
+        <img
+            src="images/trad men 6.jpg"
+            class="trad-img h-[240px] w-full object-cover">
+    </div>
+    <div class="p-5 flex flex-col flex-1">
+        <h3 class="font-bold text-xl">
+            Royal Classic
+        </h3>
+        <p class="text-blue-300 font-bold text-lg mt-1.5">
+            #920,000
+        </p>
+        <p class="text-sm mt-2">
+            Traditional luxury style designed for special occasions.
+        </p>
+        <br/>
+                                 <button 
+  class="add-to-cart-btn bg-blue-500 hover:bg-blue-400 text-[#0B1220] font-['Manrope'] font-semibold px-6 py-2.5 rounded-full transition-colors"
+  data-id="prod_022"
+  data-name="trad men Set"
+  data-price="920000"
+  data-image="images/trad men 6.jpg"
+  data-size="M">
+  Add to Cart
+</button>
+    </div>
+</div>
+<div
+    class="trad-card w-[260px] min-h-[420px] flex flex-col shrink-0 rounded-3xl overflow-hidden bg-white shadow-2xl">
+    <div class="overflow-hidden">
+        <img
+            src="images/trad men 7.jpg"
+            class="trad-img h-[240px] w-full object-cover">
+    </div>
+    <div class="p-5 flex flex-col flex-1">
+        <h3 class="font-bold text-xl">
+            Wedding Royalty
+        </h3>
+        <p class="text-blue-300 font-bold text-lg mt-1.5">
+            #960,000
+        </p>
+        <p class="text-gray-600 text-sm mt-2">
+            Premium traditional outfit made for celebrations.
+        </p>
+        <br/>
+                                 <button 
+  class="add-to-cart-btn bg-blue-500 hover:bg-blue-400 text-[#0B1220] font-['Manrope'] font-semibold px-6 py-2.5 rounded-full transition-colors"
+  data-id="prod_023"
+  data-name="trad men Set"
+  data-price="960000"
+  data-image="images/trad men 7.jpg"
+  data-size="M">
+  Add to Cart
+</button>
+    </div>
+</div>
+<div
+    class="trad-card w-[260px] min-h-[420px] flex flex-col shrink-0 rounded-3xl overflow-hidden bg-white shadow-2xl">
+    <div class="overflow-hidden">
+        <img
+            src="images/trad men 8.jpg"
+            class="trad-img h-[240px] relative object-cover w-full">
+    </div>
+    <div class="p-5 flex flex-col flex-1">
+        <h3 class="font-bold text-xl">
+            Emperor Collection
+        </h3>
+        <p class="text-blue-300 font-bold text-lg mt-1.5">
+            #1,000,000
+        </p>
+        <p class="text-gray-600 text-sm mt-2">
+            The ultimate traditional luxury collection.
+        </p>
+        <br/>
+                                 <button 
+  class="add-to-cart-btn bg-blue-500 hover:bg-blue-400 text-[#0B1220] font-['Manrope'] font-semibold px-6 py-2.5 rounded-full transition-colors"
+  data-id="prod_024"
+  data-name="trad men Set"
+  data-price="1000000"
+  data-image="images/trad men 8.jpg"
+  data-size="M">
+  Add to Cart
+</button>
+    </div>
+</div>
+</div>
+</div>
+</section>
+<script>
+gsap.registerPlugin(ScrollTrigger);
+ 
+const tradSection = document.querySelector("#trad-section");
+const tradTrack = document.querySelector("#trad-track");
+const tradCards = gsap.utils.toArray(".trad-card");
+let scrollAmount = tradTrack.scrollWidth - window.innerWidth;
+gsap.to(tradTrack, {
+    x: () => -scrollAmount,
+    ease: "none",
+    scrollTrigger: {
+        trigger: tradSection,
+        start: "top top",
+        end: () => "+=" + scrollAmount,
+        scrub: 1.5,
+        pin: true,
+        anticipatePin: 1,
+        invalidateOnRefresh: true
+    }
+});
+tradCards.forEach((card, index)=>{
+    gsap.from(card, {
+        opacity:0.2,
+        y:80,
+        scale:0.9,
+        rotateY:20,
+        duration:1,
+        ease:"power4.out",
+        scrollTrigger:{
+            trigger:card,
+            start:"left 90%",
+            end:"left 40%",
+            scrub:true,
+            containerAnimation: gsap.getTweensOf(tradTrack)[0]
+        }
+    });
+});
+tradCards.forEach(card=>{
+    const image = card.querySelector(".trad-img");
+    card.addEventListener("mouseenter",()=>{
+        gsap.to(card,{
+            y:-20,
+            scale:1.05,
+            boxShadow:
+            "0px 30px 70px rgba(0,0,0,0.25)",
+            duration:.4,
+            ease:"power3.out"
+        });
+        gsap.to(image,{
+            scale:1.15,
+            duration:.6,
+            ease:"power2.out"
+        });
+    });
+    card.addEventListener("mouseleave",()=>{
+        gsap.to(card,{
+            y:0,
+            scale:1,
+            boxShadow:
+            "0px 20px 40px rgba(0,0,0,0.15)",
+            duration:.4
+        });
+        gsap.to(image,{
+            scale:1,
+            duration:.5
+        });
+    });
+});
+async function addToCart(productId){
+    const session = await requireLogin();
+    if(!session) return;
+    const {
+        data:existing,
+        error:checkError
+    } = await supabase
+        .from("cart_items")
+        .select("*")
+        .eq(
+            "user_id",
+            session.user.id
+        )
+        .eq(
+            "product_id",
+            productId
+        )
+        .maybeSingle();
+    if(checkError){
+        console.log(checkError);
+        return;
+    }
+    if(existing){
+        const {
+            error:updateError
+        } = await supabase
+            .from("cart_items")
+            .update({
+                quantity:
+                existing.quantity + 1
+            })
+            .eq(
+                "id",
+                existing.id
+            );
+        if(updateError){
+            alert(updateError.message);
+            return;
+        }
+    }
+    else{
+        const {
+            error:insertError
+        } = await supabase
+            .from("cart_items")
+            .insert([{
+                user_id:
+                session.user.id,
+                product_id:
+                productId,
+                quantity:1
+            }]);
+        if(insertError){
+            alert(insertError.message);
+            return;
+        }
+    }
+    alert("Added to cart 🛒");
+}
+document.querySelectorAll(".trad-cart").forEach(button=>{
+    button.addEventListener(
+        "click",
+        ()=>{
+            const productId =
+            button.dataset.productId;
+            addToCart(productId);
+        }
+    );
+});
+</script>
+<br/>
+<section class="relative overflow-hidden" id="h-section">
+ <h1 class="font-bold text-4xl flex justify-center">
+    FEMALE SECTION
+</h1>
+<br/>
+<br/>
+<br/>
+<h2 id="womencasual" class="text-2xl font-semibold text-center">
+            Casual Styles!
+        </h2>
+        <br/>
+        <br/>
+    <div class="flex gap-6 w-max will-change-transform" id="h-track">
+ 
+      <div class="group relative w-[280px] h-[380px] flex-none rounded-2xl overflow-hidden shadow-[0_10px_24px_rgba(27,36,56,0.12)]">
+        <img src="images/casual women 1.jpg" alt="Casual women look 1"
+             class="w-full h-full object-full grayscale-[60%] transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105" />
+        <div class="absolute inset-x-0 bottom-0 p-3.5 bg-gradient-to-t from-[#1B2438]/85 to-transparent text-[#F3ECDD] text-xs tracking-wide translate-y-full transition-transform duration-300 group-hover:translate-y-0">
+          <p class="text-black font-semibold">Our Sporty look- Baggy jeans, jersey and sneakers.</p>
+          <p class="text-black font-semibold">#560,990</p>
+          <br/>
+                                 <button 
+  class="add-to-cart-btn bg-blue-500 hover:bg-blue-400 text-[#0B1220] font-['Manrope'] font-semibold px-6 py-2.5 rounded-full transition-colors"
+  data-id="prod_025"
+  data-name="casual women Set"
+  data-price="560000"
+  data-image="images/casual women 1.jpg"
+  data-size="M">
+  Add to Cart
+</button>
+        </div>
+      </div>
+ 
+      <div class="group relative w-[280px] h-[380px] flex-none rounded-2xl overflow-hidden shadow-[0_10px_24px_rgba(27,36,56,0.12)]">
+        <img src="images/casual women 2.jpg" alt="Casual women look 2"
+             class="w-full h-full object-full grayscale-[60%] transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105" />
+        <div class="absolute inset-x-0 bottom-0 p-3.5 bg-gradient-to-t from-[#1B2438]/85 to-transparent text-[#F3ECDD] text-xs tracking-wide translate-y-full transition-transform duration-300 group-hover:translate-y-0">
+          <p class="text-black font-semibold">Our Lunch/Girls nightout Look- Bodyhug Gown, A knitted boobtop, a coach bag and a flip flop.</p>
+          <p class="text-black font-semibold">#730,000</p>
+          <br/>
+                                <button 
+  class="add-to-cart-btn bg-blue-500 hover:bg-blue-400 text-[#0B1220] font-['Manrope'] font-semibold px-6 py-2.5 rounded-full transition-colors"
+  data-id="prod_026"
+  data-name="casual women Set"
+  data-price="730000"
+  data-image="images/casual women 2.jpg"
+  data-size="M">
+  Add to Cart
+</button>
+        </div>
+      </div>
+ 
+      <div class="group relative w-[280px] h-[380px] flex-none rounded-2xl overflow-hidden shadow-[0_10px_24px_rgba(27,36,56,0.12)]">
+        <img src="images/casual women 3.jpg" alt="Casual women look 3"
+             class="w-full h-full object-full grayscale-[60%] transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105" />
+        <div class="absolute inset-x-0 bottom-0 p-3.5 bg-gradient-to-t from-[#1B2438]/85 to-transparent text-[#F3ECDD] text-xs tracking-wide translate-y-full transition-transform duration-300 group-hover:translate-y-0">
+          <p class="text-black font-semibold">Our Simple Look - Bodyhug tee, Tract pant and Sneakers.</p>
+          <p class="text-black font-semibold">#670,000</p>
+          <br/>
+                                <button 
+  class="add-to-cart-btn bg-blue-500 hover:bg-blue-400 text-[#0B1220] font-['Manrope'] font-semibold px-6 py-2.5 rounded-full transition-colors"
+  data-id="prod_027"
+  data-name="casual women Set"
+  data-price="670000"
+  data-image="images/casual women 3.jpg"
+  data-size="M">
+  Add to Cart
+</button>
+        </div>
+      </div>
+ 
+      <div class="group relative w-[280px] h-[380px] flex-none rounded-2xl overflow-hidden shadow-[0_10px_24px_rgba(27,36,56,0.12)]">
+        <img src="images/casual women 4.jpg" alt="Casual women look 4"
+             class="w-full h-full relative object-full grayscale-[60%] transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105" />
+        <div class="absolute inset-x-0 bottom-0 p-3.5 bg-gradient-to-t from-[#1B2438]/85 to-transparent text-[#F3ECDD] text-xs tracking-wide translate-y-full transition-transform duration-300 group-hover:translate-y-0">
+          <p class="text-black font-semibold">Our Games-night Look - Jort, coach bag, vans sneakers and a jersey top.</p>
+          <p class="text-black font-semibold">#770,000</p>
+          <br/>
+                                  <button 
+  class="add-to-cart-btn bg-blue-500 hover:bg-blue-400 text-[#0B1220] font-['Manrope'] font-semibold px-6 py-2.5 rounded-full transition-colors"
+  data-id="prod_028"
+  data-name="casual women Set"
+  data-price="770000"
+  data-image="images/casual women 4.jpg"
+  data-size="M">
+  Add to Cart
+</button>
+        </div>
+      </div>
+ 
+      <div class="group relative w-[280px] h-[380px] flex-none rounded-2xl overflow-hidden shadow-[0_10px_24px_rgba(27,36,56,0.12)]">
+        <img src="images/casual women 5.jpg" alt="Casual women look 5"
+             class="w-full h-full object-full grayscale-[60%] transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105" />
+        <div class="absolute inset-x-0 bottom-0 p-3.5 bg-gradient-to-t from-[#1B2438]/85 to-transparent text-[#F3ECDD] text-xs tracking-wide translate-y-full transition-transform duration-300 group-hover:translate-y-0">
+          <p class="text-black font-semibold">Our Hood Look - Jort, snapback, jersey and a Nike Boots.</p>
+          <p class="text-black font-semibold">#750,000</p>
+        <br/>
+                                <button 
+  class="add-to-cart-btn bg-blue-500 hover:bg-blue-400 text-[#0B1220] font-['Manrope'] font-semibold px-6 py-2.5 rounded-full transition-colors"
+  data-id="prod_029"
+  data-name="casual women Set"
+  data-price="750000"
+  data-image="images/casual women 5.jpg"
+  data-size="M">
+  Add to Cart
+</button>
+        </div>
+      </div>
+ 
+      <div class="group relative w-[280px] h-[380px] flex-none rounded-2xl overflow-hidden shadow-[0_10px_24px_rgba(27,36,56,0.12)]">
+        <img src="images/casual women 6.jpg" alt="Casual women look 6"
+             class="w-full h-full object-full grayscale-[60%] transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105" />
+        <div class="absolute inset-x-0 bottom-0 p-3.5 bg-gradient-to-t from-[#1B2438]/85 to-transparent text-[#F3ECDD] text-xs tracking-wide translate-y-full transition-transform duration-300 group-hover:translate-y-0">
+         <p class="text-black font-semibold"> Our Simple Outing Look - Jort, stockens, sneakers and black tee.</p>
+         <p class="text-black font-semibold">#890,000</p>
+        <br/>
+                                <button 
+  class="add-to-cart-btn bg-blue-500 hover:bg-blue-400 text-[#0B1220] font-['Manrope'] font-semibold px-6 py-2.5 rounded-full transition-colors"
+  data-id="prod_030"
+  data-name="casual women Set"
+  data-price="890000"
+  data-image="images/casual women 6.jpg"
+  data-size="M">
+  Add to Cart
+</button>
+        </div>
+      </div>
+ 
+      <div class="group relative w-[280px] h-[380px] flex-none rounded-2xl overflow-hidden shadow-[0_10px_24px_rgba(27,36,56,0.12)]">
+        <img src="images/casual women 7.jpg" alt="Casual women look 7"
+             class="w-full h-full object-full grayscale-[60%] transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105" />
+        <div class="absolute inset-x-0 bottom-0 p-3.5 bg-gradient-to-t from-[#1B2438]/85 to-transparent text-[#F3ECDD] text-xs tracking-wide translate-y-full transition-transform duration-300 group-hover:translate-y-0">
+          <p class="text-black font-semibold">Our Cozy Look - Sweat short, stockens, Air jordans, face cap and white tee.</p>
+          <p class="text-black font-semibold">#790,990</p>
+        <br/> 
+                                <button 
+  class="add-to-cart-btn bg-blue-500 hover:bg-blue-400 text-[#0B1220] font-['Manrope'] font-semibold px-6 py-2.5 rounded-full transition-colors"
+  data-id="prod_031"
+  data-name="casual women Set"
+  data-price="790000"
+  data-image="images/casual women 7.jpg"
+  data-size="M">
+  Add to Cart
+</button>
+        </div>
+      </div>
+ 
+      <div class="group relative w-[280px] h-[380px] flex-none rounded-2xl overflow-hidden shadow-[0_10px_24px_rgba(27,36,56,0.12)]">
+        <img src="images/casual women 8.jpg" alt="Casual women look 8"
+             class="w-full h-full object-full grayscale-[60%] transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105" />
+        <div class="absolute inset-x-0 bottom-0 p-3.5 bg-gradient-to-t from-[#1B2438]/85 to-transparent text-[#F3ECDD] text-xs tracking-wide translate-y-full transition-transform duration-300 group-hover:translate-y-0">
+          <p class="text-black font-semibold">Our Girly Hood Look - Jort, Black tee, coach bag, belt, shades and Nike boots.</p>
+          <p class="text-black font-semibold">#650,000</p>
+        <br/>
+                               <button 
+  class="add-to-cart-btn bg-blue-500 hover:bg-blue-400 text-[#0B1220] font-['Manrope'] font-semibold px-6 py-2.5 rounded-full transition-colors"
+  data-id="prod_032"
+  data-name="casual women Set"
+  data-price="650000"
+  data-image="images/casual women 8.jpg"
+  data-size="M">
+  Add to Cart
+</button>
+        </div>
+      </div>
+    </div>
+    </section>
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+ 
+  const track = document.getElementById("h-track");
+  const section = document.getElementById("h-section");
+ 
+  function initHorizontalScroll() {
+    const trackWidth = track.scrollWidth;
+    const viewportWidth = section.clientWidth;
+    const distance = trackWidth - viewportWidth;
+ 
+    gsap.to(track, {
+      x: -distance,
+      ease: "none",
+      scrollTrigger: {
+        trigger: section,
+        start: "top top",
+        end: () => "+=" + distance,
+        scrub: 1,
+        pin: true,
+        anticipatePin: 1,
+        invalidateOnRefresh: true
+      }
+    });
+  }
+ 
+  window.addEventListener("load", initHorizontalScroll);
+  window.addEventListener("resize", () => ScrollTrigger.refresh());
+</script>
+
+<section id="corp3-section" class="relative z-10 pt-32 pb-24 mt-24 overflow-hidden">
+    <h2 id="womenscorporate" class="text-5xl font-bold text-center">
+        Corporate Styles!
+    </h2>
+    <br/>
+    <p class="text-center font-semibold">
+        Sharp, tailored pieces designed for the modern working woman.
+    </p>
+<br/>
+<br/>
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+        <div class="corp3-card rounded-3xl overflow-hidden bg-white shadow-2xl flex flex-col">
+            <div class="overflow-hidden">
+                <img src="images/corperate women 1.jpg" alt="Executive Blazer Set" class="corp3-img w-full h-full object-contain transition duration-500">
+            </div>
+            <div class="p-5 flex flex-col flex-1">
+                <h3 class="font-bold text-xl">Executive Set</h3>
+                <p class="text-blue-600 font-bold text-lg mt-1">#950,000</p>
+                <p class="text-gray-600 text-sm mt-2">Not too much stress - suit pant, belt, shirt and a sweater. Can go more with heels</p>
+                <br/>
+                                       <button 
+  class="add-to-cart-btn bg-blue-500 hover:bg-blue-400 text-[#0B1220] font-['Manrope'] font-semibold px-6 py-2.5 rounded-full transition-colors"
+  data-id="prod_033"
+  data-name="corperate women Set"
+  data-price="950000"
+  data-image="images/corperate women 1.jpg"
+  data-size="M">
+  Add to Cart
+</button>
+            </div>
+        </div>
+
+        <div class="corp3-card rounded-3xl overflow-hidden bg-white shadow-2xl flex flex-col">
+            <div class="overflow-hidden">
+                <img src="images/corperate women 2.jpg" alt="Classic Office Dress" class="corp3-img w-full h-full object-contain transition duration-500">
+            </div>
+            <div class="p-5 flex flex-col flex-1">
+                <h3 class="font-bold text-xl">Classic Office Dress</h3>
+                <p class="text-blue-600 font-bold text-lg mt-1">#700,000</p>
+                <p class="text-gray-600 text-sm mt-2">Beltless suit pant, YSL strap bag, a shirt and a boot heel.</p>
+                <br/>
+                <button 
+  class="add-to-cart-btn bg-blue-500 hover:bg-blue-400 text-[#0B1220] font-['Manrope'] font-semibold px-6 py-2.5 rounded-full transition-colors"
+  data-id="prod_034"
+  data-name="corperate women Set"
+  data-price="700000"
+  data-image="images/corperate women 2.jpg"
+  data-size="M">
+  Add to Cart
+</button>
+            </div>
+        </div>
+
+        <div class="corp3-card rounded-3xl overflow-hidden bg-white shadow-2xl flex flex-col">
+            <div class="overflow-hidden">
+                <img src="images/corperate women 3.jpg" alt="Power Pantsuit" class="corp3-img w-full h-full object-contain transition duration-500">
+            </div>
+            <div class="p-5 flex flex-col flex-1">
+                <h3 class="font-bold text-xl">Sporty Corporate</h3>
+                <p class="text-blue-600 font-bold text-lg mt-1">#1,050,000</p>
+                <p class="text-gray-600 text-sm mt-2">Beltless suit pant, shirt, coach bag, scarf and New Balances.</p>
+                <br/>
+                <button 
+  class="add-to-cart-btn bg-blue-500 hover:bg-blue-400 text-[#0B1220] font-['Manrope'] font-semibold px-6 py-2.5 rounded-full transition-colors"
+  data-id="prod_035"
+  data-name="corperate women Set"
+  data-price="1050000"
+  data-image="images/corperate women 3.jpg"
+  data-size="M">
+  Add to Cart
+</button>
+            </div>
+        </div>
+
+        <div class="corp3-card rounded-3xl overflow-hidden bg-white shadow-2xl flex flex-col">
+            <div class="overflow-hidden">
+                <img src="images/corperate women 4.jpg" alt="Silk Blouse Ensemble" class="corp3-img w-full h-full object-contain transition duration-500">
+            </div>
+            <div class="p-5 flex flex-col flex-1">
+                <h3 class="font-bold text-xl">Silk Blouse Ensemble</h3>
+                <p class="text-blue-600 font-bold text-lg mt-1">#650,000</p>
+                <p class="text-gray-600 text-sm mt-2">A soft-draping silk shirt and suit trouser pairing for effortless polish. Complimented with a coach bag, bracelet, watch and strapped wedges.</p>
+                <br/>
+                <button 
+  class="add-to-cart-btn bg-blue-500 hover:bg-blue-400 text-[#0B1220] font-['Manrope'] font-semibold px-6 py-2.5 rounded-full transition-colors"
+  data-id="prod_036"
+  data-name="corperate women Set"
+  data-price="650000"
+  data-image="images/corperate women 4.jpg"
+  data-size="M">
+  Add to Cart
+</button>
+            </div>
+        </div>
+
+        <div class="corp3-card rounded-3xl overflow-hidden bg-white shadow-2xl flex flex-col">
+            <div class="overflow-hidden">
+                <img src="images/corperate women 5.jpg" alt="Pencil Skirt Suit" class="corp3-img w-full h-full object-contain transition duration-500">
+            </div>
+            <div class="p-5 flex flex-col flex-1">
+                <h3 class="font-bold text-xl">Modern Suit Look</h3>
+                <p class="text-blue-600 font-bold text-lg mt-1">#880,000</p>
+                <p class="text-gray-600 text-sm mt-2">Armless body hug top, beltless suit pant, coach bag, heels and a blazer.</p>
+                <br/>
+                <button 
+  class="add-to-cart-btn bg-blue-500 hover:bg-blue-400 text-[#0B1220] font-['Manrope'] font-semibold px-6 py-2.5 rounded-full transition-colors"
+  data-id="prod_037"
+  data-name="corperate women Set"
+  data-price="880000"
+  data-image="images/corperate women 5.jpg"
+  data-size="M">
+  Add to Cart
+</button>
+            </div>
+        </div>
+
+        <div class="corp3-card rounded-3xl overflow-hidden bg-white shadow-2xl flex flex-col">
+            <div class="overflow-hidden">
+                <img src="images/corperate women 6.jpg" alt="Modern Trench Coat" class="corp3-img w-full h-full object-contain transition duration-500">
+            </div>
+            <div class="p-5 flex flex-col flex-1">
+                <h3 class="font-bold text-xl">Modern Trench Corporate</h3>
+                <p class="text-blue-600 font-bold text-lg mt-1">#1,200,000</p>
+                <p class="text-gray-600 text-sm mt-2">A structured trench that layers sharply over any office look. Jean, sneakers, wrist watch, straped bag, shirt and waist coat</p>
+                <br/>
+                <button 
+  class="add-to-cart-btn bg-blue-500 hover:bg-blue-400 text-[#0B1220] font-['Manrope'] font-semibold px-6 py-2.5 rounded-full transition-colors"
+  data-id="prod_038"
+  data-name="corperate women Set"
+  data-price="1200000"
+  data-image="images/corperate women 6.jpg"
+  data-size="M">
+  Add to Cart
+</button>
+            </div>
+        </div>
+
+        <div class="corp3-card rounded-3xl overflow-hidden bg-white shadow-2xl flex flex-col">
+            <div class="overflow-hidden">
+                <img src="images/corperate women 7.jpg" alt="Structured Shift Dress" class="corp3-img w-full h-full object-contain transition duration-500">
+            </div>
+            <div class="p-5 flex flex-col flex-1">
+                <h3 class="font-bold text-xl">Structured Shift Dress</h3>
+                <p class="text-blue-600 font-bold text-lg mt-1">#720,000</p>
+                <p class="text-gray-600 text-sm mt-2">A no-fuss shift dress with clean seams for all-day comfort. Shirt, coach bag, shades, bootcut pants and heels</p>
+                <br/>
+                <button 
+  class="add-to-cart-btn bg-blue-500 hover:bg-blue-400 text-[#0B1220] font-['Manrope'] font-semibold px-6 py-2.5 rounded-full transition-colors"
+  data-id="prod_039"
+  data-name="corperate women Set"
+  data-price="720000"
+  data-image="images/corperate women 7.jpg"
+  data-size="M">
+  Add to Cart
+</button>
+            </div>
+        </div>
+
+        <div class="corp3-card rounded-3xl overflow-hidden bg-white shadow-2xl flex flex-col">
+            <div class="overflow-hidden">
+                <img src="images/corperate women 8.jpg" alt="Corporate Wrap Dress" class="corp3-img w-full h-full object-contain transition duration-500">
+            </div>
+            <div class="p-5 flex flex-col flex-1">
+                <h3 class="font-bold text-xl">Corporate Wrap Dress</h3>
+                <p class="text-blue-600 font-bold text-lg mt-1">#780,000</p>
+                <p class="text-gray-600 text-sm mt-2">A flattering wrap dress that transitions from meetings to evenings. Shirt, watch, bracelets, suit pant, coach bag and heels</p>
+                <br/>
+                <button 
+  class="add-to-cart-btn bg-blue-500 hover:bg-blue-400 text-[#0B1220] font-['Manrope'] font-semibold px-6 py-2.5 rounded-full transition-colors"
+  data-id="prod_040"
+  data-name="corperate women Set"
+  data-price="780000"
+  data-image="images/corperate women 8.jpg"
+  data-size="M">
+  Add to Cart
+</button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+const corp3Cards = gsap.utils.toArray(".corp3-card");
+corp3Cards.forEach((card, i) => {
+    const image = card.querySelector(".corp3-img");
+
+    const fromLeft = i % 2 === 0;
+
+    gsap.from(card, {
+        opacity: 0,
+        y: 60,
+        x: fromLeft ? -40 : 40,
+        rotateZ: fromLeft ? -3 : 3,
+        scale: 0.9,
+        duration: 0.9 + (i % 3) * 0.1,
+        ease: "power3.out",
+        scrollTrigger: {
+            trigger: card,
+            start: "top 88%",
+            toggleActions: "play none none reverse"
+        }
+    });
+
+    card.addEventListener("mouseenter", () => {
+        gsap.to(card, {
+            y: -12,
+            scale: 1.04,
+            boxShadow: "0px 25px 50px rgba(0,0,0,0.2)",
+            duration: 0.35,
+            ease: "power2.out",
+            overwrite: "auto"
+        });
+        gsap.to(image, { scale: 1.1, duration: 0.4, ease: "power2.out" });
+    });
+
+    card.addEventListener("mouseleave", () => {
+        gsap.to(card, {
+            y: 0,
+            scale: 1,
+            boxShadow: "0px 10px 25px rgba(0,0,0,0.1)",
+            duration: 0.35,
+            overwrite: "auto"
+        });
+        gsap.to(image, { scale: 1, duration: 0.4 });
+    });
+});
+async function corp3RequireLogin() {
+    const { data: { session } } = await supabase.auth.getSession();
+    if (!session) {
+        window.location.href = "login.html";
+        return null;
+    }
+    return session;
+}
+
+async function corp3AddToCart(productId) {
+    const session = await corp3RequireLogin();
+    if (!session) return;
+
+    const { data: existing } = await supabase
+        .from("cart_items")
+        .select("*")
+        .eq("user_id", session.user.id)
+        .eq("product_id", productId)
+        .maybeSingle();
+
+    if (existing) {
+        await supabase
+            .from("cart_items")
+            .update({ quantity: existing.quantity + 1 })
+            .eq("id", existing.id);
+    } else {
+        await supabase
+            .from("cart_items")
+            .insert([{ user_id: session.user.id, product_id: productId, quantity: 1 }]);
+    }
+    alert("Added to Cart 🛒");
+}
+
+document.querySelectorAll(".corp3-cart").forEach((btn) => {
+    btn.addEventListener("click", () => {
+        corp3AddToCart(btn.dataset.productId);
+    });
+});
+</script>
+<section id="tradw-section" class="relative z-10 pt-32 pb-24 mt-24 overflow-hidden">
+    <h2 id="womenstrad" class="text-5xl font-bold text-center">
+        Traditional Styles
+    </h2>
+    <p class="text-center font-semibold mt-3 mb-12">
+        Timeless traditional pieces, reimagined for today.
+    </p>
+
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+        <div class="tradw-card rounded-3xl overflow-hidden bg-white shadow-2xl flex flex-col">
+            <div class="overflow-hidden">
+                <img src="images/trad women 1.jpg" alt="Ankara Wrap Dress" class="tradw-img h-64 w-full object-cover">
+            </div>
+            <div class="p-5 flex flex-col flex-1">
+                <h3 class="font-bold text-xl">Ankara Wrap Dress</h3>
+                <p class="text-blue-600 font-bold text-lg mt-1">#680,000</p>
+                <p class="text-gray-600 text-sm mt-2">Bold Ankara print wrap dress, cinched at the waist for a flattering fit.</p>
+                <br/>
+                <button 
+  class="add-to-cart-btn bg-blue-500 hover:bg-blue-400 text-[#0B1220] font-['Manrope'] font-semibold px-6 py-2.5 rounded-full transition-colors"
+  data-id="prod_041"
+  data-name="trad women Set"
+  data-price="680000"
+  data-image="images/trad women 1.jpg"
+  data-size="M">
+  Add to Cart
+</button>
+            </div>
+        </div>
+
+        <div class="tradw-card rounded-3xl overflow-hidden bg-white shadow-2xl flex flex-col">
+            <div class="overflow-hidden">
+                <img src="images/trad women 2.jpg" alt="Adire Boubou" class="tradw-img h-64 w-full object-cover">
+            </div>
+            <div class="p-5 flex flex-col flex-1">
+                <h3 class="font-bold text-xl">Modern Wedding Ankara</h3>
+                <p class="text-blue-600 font-bold text-lg mt-1">#850,000</p>
+                <p class="text-gray-600 text-sm mt-2">A classic design with a flowing silhouette for effortless elegance.</p>
+                <br/>
+                       <button 
+  class="add-to-cart-btn bg-blue-500 hover:bg-blue-400 text-[#0B1220] font-['Manrope'] font-semibold px-6 py-2.5 rounded-full transition-colors"
+  data-id="prod_042"
+  data-name="trad women Set"
+  data-price="850000"
+  data-image="images/trad women 2.jpg"
+  data-size="M">
+  Add to Cart
+</button>
+            </div>
+        </div>
+
+        <div class="tradw-card rounded-3xl overflow-hidden bg-white shadow-2xl flex flex-col">
+            <div class="overflow-hidden">
+                <img src="images/trad women 3.jpg" alt="Aso-Oke Gown" class="tradw-img h-64 w-full object-cover">
+            </div>
+            <div class="p-5 flex flex-col flex-1">
+                <h3 class="font-bold text-xl">Adire Boubou</h3>
+                <p class="text-blue-600 font-bold text-lg mt-1">#1,300,000</p>
+                <p class="text-gray-600 text-sm mt-2">Handwoven Aso-Oke fabric boubou, made for casual outings and grand occasions.</p>
+                <br/>
+                       <button 
+  class="add-to-cart-btn bg-blue-500 hover:bg-blue-400 text-[#0B1220] font-['Manrope'] font-semibold px-6 py-2.5 rounded-full transition-colors"
+  data-id="prod_043"
+  data-name="trad women Set"
+  data-price="1300000"
+  data-image="images/trad women 3.jpg"
+  data-size="M">
+  Add to Cart
+</button>
+            </div>
+        </div>
+
+        <div class="tradw-card rounded-3xl overflow-hidden bg-white shadow-2xl flex flex-col">
+            <div class="overflow-hidden">
+                <img src="images/trad women 4.jpg" alt="Lace Iro and Buba" class="tradw-img h-64 w-full object-cover">
+            </div>
+            <div class="p-5 flex flex-col flex-1">
+                <h3 class="font-bold text-xl">Lace boubou</h3>
+                <p class="text-blue-600 font-bold text-lg mt-1">#1,100,000</p>
+                <p class="text-gray-600 text-sm mt-2">Classic lace boubou with intricate weaving detailing.</p>
+                <br/>
+                       <button 
+  class="add-to-cart-btn bg-blue-500 hover:bg-blue-400 text-[#0B1220] font-['Manrope'] font-semibold px-6 py-2.5 rounded-full transition-colors"
+  data-id="prod_044"
+  data-name="trad women Set"
+  data-price="1100000"
+  data-image="images/trad women 4.jpg"
+  data-size="M">
+  Add to Cart
+</button>
+            </div>
+        </div>
+
+        <div class="tradw-card rounded-3xl overflow-hidden bg-white shadow-2xl flex flex-col">
+            <div class="overflow-hidden">
+                <img src="images/trad women 5.jpg" alt="Kente Inspired Dress" class="tradw-img h-64 w-full object-cover">
+            </div>
+            <div class="p-5 flex flex-col flex-1">
+                <h3 class="font-bold text-xl">Danshiki Maxi</h3>
+                <p class="text-blue-600 font-bold text-lg mt-1">#920,000</p>
+                <p class="text-gray-600 text-sm mt-2">Vibrant Danshiki-pattern dress that pairs heritage with a modern cut.</p>
+                <br/>
+                       <button 
+  class="add-to-cart-btn bg-blue-500 hover:bg-blue-400 text-[#0B1220] font-['Manrope'] font-semibold px-6 py-2.5 rounded-full transition-colors"
+  data-id="prod_045"
+  data-name="trad women Set"
+  data-price="920000"
+  data-image="images/trad women 5.jpg"
+  data-size="M">
+  Add to Cart
+</button>
+            </div>
+        </div>
+
+        <div class="tradw-card rounded-3xl overflow-hidden bg-white shadow-2xl flex flex-col">
+            <div class="overflow-hidden">
+                <img src="images/trad women 6.jpg" alt="Danshiki Maxi" class="tradw-img h-64 w-full object-cover">
+            </div>
+            <div class="p-5 flex flex-col flex-1">
+                <h3 class="font-bold text-xl">Ankara Iro &amp; Buba</h3>
+                <p class="text-blue-600 font-bold text-lg mt-1">#750,000</p>
+                <p class="text-gray-600 text-sm mt-2">Relaxed iro and buba with embroidered buba detail.</p>
+                <br/>
+                       <button 
+  class="add-to-cart-btn bg-blue-500 hover:bg-blue-400 text-[#0B1220] font-['Manrope'] font-semibold px-6 py-2.5 rounded-full transition-colors"
+  data-id="prod_046"
+  data-name="trad women Set"
+  data-price="750000"
+  data-image="images/trad women 6.jpg"
+  data-size="M">
+  Add to Cart
+</button>
+            </div>
+        </div>
+
+        <div class="tradw-card rounded-3xl overflow-hidden bg-white shadow-2xl flex flex-col">
+            <div class="overflow-hidden">
+                <img src="images/trad women 7.jpg" alt="Gele and Wrapper Set" class="tradw-img h-64 w-full object-cover">
+            </div>
+            <div class="p-5 flex flex-col flex-1">
+                <h3 class="font-bold text-xl">Gele &amp; Gown Set</h3>
+                <p class="text-blue-600 font-bold text-lg mt-1">#980,000</p>
+                <p class="text-gray-600 text-sm mt-2">Complete gele and gown set for full traditional ceremonial dressing.</p>
+                <br/>
+                       <button 
+  class="add-to-cart-btn bg-blue-500 hover:bg-blue-400 text-[#0B1220] font-['Manrope'] font-semibold px-6 py-2.5 rounded-full transition-colors"
+  data-id="prod_047"
+  data-name="trad women Set"
+  data-price="980000"
+  data-image="images/trad women 7.jpg"
+  data-size="M">
+  Add to Cart
+</button>
+            </div>
+        </div>
+
+        <div class="tradw-card rounded-3xl overflow-hidden bg-white shadow-2xl flex flex-col">
+            <div class="overflow-hidden">
+                <img src="images/trad women 8.jpg" alt="Ankara Two-Piece" class="tradw-img h-64 w-full object-cover">
+            </div>
+            <div class="p-5 flex flex-col flex-1">
+                <h3 class="font-bold text-xl">Ankara Agbada</h3>
+                <p class="text-blue-600 font-bold text-lg mt-1">#800,000</p>
+                <p class="text-gray-600 text-sm mt-2">Ankara Agbada, tailored for a sharp, put-together look.</p>
+                <br/>
+                       <button 
+  class="add-to-cart-btn bg-blue-500 hover:bg-blue-400 text-[#0B1220] font-['Manrope'] font-semibold px-6 py-2.5 rounded-full transition-colors"
+  data-id="prod_048"
+  data-name="trad women Set"
+  data-price="800000"
+  data-image="images/trad women 8.jpg"
+  data-size="M">
+  Add to Cart
+</button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+const tradwCards = gsap.utils.toArray(".tradw-card");
+tradwCards.forEach((card, i) => {
+    const image = card.querySelector(".tradw-img");
+    const fromLeft = i % 2 === 0;
+
+    gsap.from(card, {
+        opacity: 0,
+        y: 60,
+        x: fromLeft ? -40 : 40,
+        rotateZ: fromLeft ? -3 : 3,
+        scale: 0.9,
+        duration: 0.9 + (i % 3) * 0.1,
+        ease: "power3.out",
+        scrollTrigger: {
+            trigger: card,
+            start: "top 88%",
+            toggleActions: "play none none reverse"
+        }
+    });
+
+    card.addEventListener("mouseenter", () => {
+        gsap.to(card, {
+            y: -12,
+            scale: 1.04,
+            boxShadow: "0px 25px 50px rgba(0,0,0,0.2)",
+            duration: 0.35,
+            ease: "power2.out",
+            overwrite: "auto"
+        });
+        gsap.to(image, { scale: 1.1, duration: 0.4, ease: "power2.out" });
+    });
+
+    card.addEventListener("mouseleave", () => {
+        gsap.to(card, {
+            y: 0,
+            scale: 1,
+            boxShadow: "0px 10px 25px rgba(0,0,0,0.1)",
+            duration: 0.35,
+            overwrite: "auto"
+        });
+        gsap.to(image, { scale: 1, duration: 0.4 });
+    });
+});
+async function tradwRequireLogin() {
+    const { data: { session } } = await supabase.auth.getSession();
+    if (!session) {
+        window.location.href = "login.html";
+        return null;
+    }
+    return session;
+}
+
+async function tradwAddToCart(productId) {
+    const session = await tradwRequireLogin();
+    if (!session) return;
+
+    const { data: existing } = await supabase
+        .from("cart_items")
+        .select("*")
+        .eq("user_id", session.user.id)
+        .eq("product_id", productId)
+        .maybeSingle();
+
+    if (existing) {
+        await supabase
+            .from("cart_items")
+            .update({ quantity: existing.quantity + 1 })
+            .eq("id", existing.id);
+    } else {
+        await supabase
+            .from("cart_items")
+            .insert([{ user_id: session.user.id, product_id: productId, quantity: 1 }]);
+    }
+    alert("Added to Cart 🛒");
+}
+
+document.querySelectorAll(".tradw-cart").forEach((btn) => {
+    btn.addEventListener("click", () => {
+        tradwAddToCart(btn.dataset.productId);
+    });
+});
+</script>
+
+<section id="contact" class="relative px-6 md:px-16 lg:px-24 py-24 md:py-32 overflow-hidden">
+
+  <div class="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
+
+  <div class="relative max-w-5xl mx-auto grid md:grid-cols-2 gap-16 md:gap-12">
+
+    <div>
+      <p class="contact-eyebrow font-['Manrope'] text-bold text-xs md:text-sm uppercase tracking-[0.4em] text-blue-400 mb-6">
+        Get In Touch
+      </p>
+
+      <h2 class="overflow-hidden mb-6">
+        <span class="contact-line-inner block font-['Fraunces'] text-white text-3xl md:text-5xl font-medium leading-[1.15]">
+          Let's build your look.
+        </span>
+      </h2>
+
+      <p class="contact-para font-['Manrope'] text-bold text-white text-base md:text-lg leading-relaxed max-w-md">
+        Got an inspo photo, a vibe, or an event you're dressing for? Send it over —
+        no detail is too small.
+      </p>
+
+      <div class="contact-para mt-10 space-y-3 font-['Manrope'] text-bold text-sm bg-blue-200 md:text-base text-blue-white">
+        <p>📧 ogunmiluaojurereoluwa@gmail.com</p>
+        <p>📞 09032116672</p>
+        <p>📍 Lagos, Nigeria</p>
+      </div>
+    </div>
+
+    <form class="contact-form space-y-6">
+      <div class="relative">
+        <input type="text" placeholder="Your name"
+          class="w-full bg-transparent border-b border-blue-400/30 focus:border-blue-400 outline-none py-3 font-['Manrope'] text-white text-bold placeholder-black transition-colors" />
+      </div>
+
+      <div class="relative">
+        <input type="email" placeholder="Your email"
+          class="w-full bg-transparent text-bold border-b border-blue-400/30 focus:border-blue-400 outline-none py-3 font-['Manrope'] text-white placeholder-black transition-colors" />
+      </div>
+
+      <div class="relative">
+        <textarea rows="4" placeholder="Tell us what you're going for..."
+          class="w-full bg-transparent border-b border-blue-400/30 focus:border-blue-400 outline-none py-3 font-['Manrope'] text-white placeholder-black transition-colors resize-none"></textarea>
+      </div>
+
+      <button type="submit"
+        class="group relative inline-flex items-center gap-2 bg-blue-500 hover:bg-blue-400 text-[#0B1F3A] font-['Manrope'] font-semibold px-8 py-3 rounded-full transition-colors">
+        Send Message
+        <span class="transition-transform group-hover:translate-x-1">→</span>
+      </button>
+    </form>
+  </div>
+</section>
+<script>
+  function initContactAnimations() {
+    const contactSection = document.getElementById('contact');
+    if (typeof gsap === 'undefined' || !contactSection) return;
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.set('#contact .contact-line-inner', { yPercent: 110 });
+
+    const contactTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: contactSection,
+        start: 'top 75%',
+        once: true
+      }
+    });
+
+    contactTl
+      .from('#contact .contact-eyebrow', { opacity: 0, y: 20, duration: 0.6, ease: 'power2.out' })
+      .to('#contact .contact-line-inner', { yPercent: 0, duration: 1, ease: 'power4.out' }, '-=0.2')
+      .from('#contact .contact-para', { opacity: 0, y: 20, duration: 0.8, ease: 'power3.out', stagger: 0.15 }, '-=0.4')
+      .from('#contact .contact-form > *', { opacity: 0, y: 16, duration: 0.6, ease: 'power2.out', stagger: 0.1 }, '-=0.4');
+  }
+
+  document.addEventListener('DOMContentLoaded', initContactAnimations);
+</script>
+<footer class="w-full mx-auto bg-[#081527] px-6 md:px-16 lg:px-24 pt-20 pb-8 border-t border-blue-900/50">
+
+  <div class="max-w-6xl mx-auto grid md:grid-cols-4 gap-12 mb-16">
+
+    <div class="md:col-span-2">
+      <h3 class="font-['Fraunces'] text-white text-2xl font-medium mb-4">Rere's Fits</h3>
+      <p class="font-['Manrope'] text-blue-100/60 text-sm leading-relaxed max-w-xs">
+        Expressive dressing, curated for you. Every layer, every color, every detail — intentional.
+      </p>
+    </div>
+
+    <div>
+      <p class="font-['Manrope'] text-xs uppercase tracking-[0.3em] text-blue-400 mb-4">Shop</p>
+      <ul class="space-y-2 font-['Manrope'] text-blue-100/70 text-sm">
+        <li><a href="#menstrad" class="hover:text-white transition-colors">Men's Traditional</a></li>
+        <li><a href="#menscasual" class="hover:text-white transition-colors">Men's Casual</a></li>
+        <li><a href="#menscorporate" class="hover:text-white transition-colors">Men's Corperate</a></li>
+        <li><a href="#womenscasual" class="hover:text-white transition-colors">Women's Casual</a></li>
+        <li><a href="#womenscorporate" class="hover:text-white transition-colors">Women's Corporate</a></li>
+        <li><a href="#womenstrad" class="hover:text-white transition-colors">Women's Traditional</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <p class="font-['Manrope'] text-xs uppercase tracking-[0.3em] text-blue-400 mb-4">Follow</p>
+      <ul class="space-y-2 font-['Manrope'] text-blue-100/70 text-sm">
+        <li><a href="https://instagram.com/htttttt_rere" class="hover:text-white transition-colors">Instagram</a></li>
+        <li><a href="#https://www.tiktok.com/theyall_hateray" class="hover:text-white transition-colors">TikTok</a></li>
+        <li><a href="https://wa.me/+2349032116672" class="hover:text-white transition-colors">WhatsApp</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="max-w-6xl mx-auto pt-8 border-t border-blue-900/50 flex flex-col md:flex-row items-center justify-between gap-4">
+    <p class="font-['Manrope'] text-blue-100/40 text-xs">
+      © 2026 Rere's Fits. All rights reserved.
+    </p>
+    <p class="font-['Manrope'] text-blue-100/40 text-xs">
+      Designed & built by Rere.
+    </p>
+  </div>
+</footer>
+</body>
+</html>

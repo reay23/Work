@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Checkout</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="website.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="node_modules/gsap/dist/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+<body class="min-h-screen">
+  <nav class="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-7xl h-16 px-6 flex items-center justify-between rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl shadow-blck/20">
+  <a href="main.html" class="flex items-center gap-3">
+    <img src="images/reres_fits_logo_bold.png" alt="Rere's Fits" class="w-9 h-9" />
+    <span class="font-['Fraunces'] text-white text-lg font-medium">Rere's Fits</span>
+  </a>
+
+  <div class="hidden md:flex items-center gap-8 font-['Manrope'] text-sm text-blue-100/70">
+    <a href="main.html" class="text-white hover:text-white transition-colors">menu</a>
+    <a href="cart.html" class="text-white hover:text-white transition-colors">cart</a>
+  </div>
+</nav>
+
+  <main class="min-h-screen bg-[#0B1220] px-6 md:px-16 lg:px-24 py-16 md:py-24">
+
+  <div class="max-w-6xl mx-auto">
+
+    <p class="checkout-eyebrow font-['Manrope'] text-xs md:text-sm uppercase tracking-[0.4em] text-blue-400 mb-4">
+      Almost There
+    </p>
+    <h1 class="checkout-heading font-['Fraunces'] text-white text-3xl md:text-5xl font-medium mb-4">
+      Checkout
+    </h1>
+
+    <div class="checkout-steps flex items-center gap-3 mb-14 font-['Manrope'] text-xs md:text-sm">
+      <span class="flex items-center gap-2 text-blue-400">
+        <span class="w-5 h-5 rounded-full bg-blue-500 text-[#0B1220] flex items-center justify-center font-bold text-[10px]">1</span>
+        Cart
+      </span>
+      <span class="w-8 h-px bg-blue-900"></span>
+      <span class="flex items-center gap-2 text-white">
+        <span class="w-5 h-5 rounded-full bg-blue-500 text-[#0B1220] flex items-center justify-center font-bold text-[10px]">2</span>
+        Checkout
+      </span>
+      <span class="w-8 h-px bg-blue-900"></span>
+      <span class="flex items-center gap-2 text-blue-100/40">
+        <span class="w-5 h-5 rounded-full border border-blue-900 flex items-center justify-center font-bold text-[10px]">3</span>
+        Confirmation
+      </span>
+    </div>
+
+    <div class="grid lg:grid-cols-5 gap-12">
+
+      <div class="lg:col-span-3 space-y-10">
+
+        <div class="checkout-block">
+          <h3 class="font-['Fraunces'] text-white text-xl mb-5">Contact</h3>
+          <div class="grid md:grid-cols-2 gap-5">
+            <input type="text" id="full-name" placeholder="Full name"
+              class="bg-blue-500/5 border border-blue-900/40 focus:border-blue-400 outline-none rounded-xl px-4 py-3 font-['Manrope'] text-white placeholder-blue-100/40 transition-colors" />
+            <input type="email" id="email" placeholder="Email address"
+              class="bg-blue-500/5 border border-blue-900/40 focus:border-blue-400 outline-none rounded-xl px-4 py-3 font-['Manrope'] text-white placeholder-blue-100/40 transition-colors" />
+            <input type="tel" id="phone" placeholder="Phone number" 
+              class="md:col-span-2 bg-blue-500/5 border border-blue-900/40 focus:border-blue-400 outline-none rounded-xl px-4 py-3 font-['Manrope'] text-white placeholder-blue-100/40 transition-colors" />
+          </div>
+        </div>
+
+        <div class="checkout-block">
+          <h3 class="font-['Fraunces'] text-white text-xl mb-5">Shipping Address</h3>
+          <div class="grid md:grid-cols-2 gap-5">
+            <input type="text" id="address" placeholder="Street address"
+              class="md:col-span-2 bg-blue-500/5 border border-blue-900/40 focus:border-blue-400 outline-none rounded-xl px-4 py-3 font-['Manrope'] text-white placeholder-blue-100/40 transition-colors" />
+            <input type="text" id="city" placeholder="City"
+              class="bg-blue-500/5 border border-blue-900/40 focus:border-blue-400 outline-none rounded-xl px-4 py-3 font-['Manrope'] text-white placeholder-blue-100/40 transition-colors" />
+            <input type="text" id="state" placeholder="State"
+              class="bg-blue-500/5 border border-blue-900/40 focus:border-blue-400 outline-none rounded-xl px-4 py-3 font-['Manrope'] text-white placeholder-blue-100/40 transition-colors" />
+          </div>
+        </div>
+
+        <div class="checkout-block">
+          <h3 class="font-['Fraunces'] text-white text-xl mb-5">Delivery Method</h3>
+          <div class="space-y-3">
+            <label class="delivery-option flex items-center justify-between bg-blue-500/5 border border-blue-400 rounded-xl px-5 py-4 cursor-pointer">
+              <div class="flex items-center gap-3">
+                <input type="radio" name="delivery" checked class="accent-blue-500" />
+                <div>
+                  <p class="font-['Manrope'] text-white text-sm font-medium">Standard Delivery</p>
+                  <p class="font-['Manrope'] text-blue-100/50 text-xs">3–5 business days</p>
+                </div>
+              </div>
+              <span class="font-['Manrope'] text-blue-300 text-sm">₦1,500</span>
+            </label>
+
+            <label class="delivery-option flex items-center justify-between bg-blue-500/5 border border-blue-900/40 rounded-xl px-5 py-4 cursor-pointer">
+              <div class="flex items-center gap-3">
+                <input type="radio" name="delivery" class="accent-blue-500" />
+                <div>
+                  <p class="font-['Manrope'] text-white text-sm font-medium">Express Delivery</p>
+                  <p class="font-['Manrope'] text-blue-100/50 text-xs">1–2 business days</p>
+                </div>
+              </div>
+              <span class="font-['Manrope'] text-blue-300 text-sm">₦4,000</span>
+            </label>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="lg:col-span-2">
+        <div class="checkout-summary bg-blue-500/5 border border-blue-900/40 rounded-2xl p-6 md:p-8 lg:sticky lg:top-24">
+
+          <h3 class="font-['Fraunces'] text-white text-xl mb-6">Order Summary</h3>
+
+          <div id="checkout-items" class="space-y-4 mb-6">
+            <div class="checkout-item flex gap-4">
+              <img src="product-placeholder.jpg" alt="Product name" class="w-16 h-20 object-cover rounded-lg flex-shrink-0" />
+              <div class="flex-1 flex flex-col justify-center">
+                <p class="font-['Manrope'] text-white text-sm">Product Name</p>
+                <p class="font-['Manrope'] text-blue-100/50 text-xs mt-1">Qty 1 · Size M</p>
+              </div>
+              <span class="font-['Manrope'] text-blue-300 text-sm self-center">₦0.00</span>
+            </div>
+          </div>
+
+          <div class="h-px bg-blue-900/50 my-5"></div>
+
+          <div class="space-y-3 font-['Manrope'] text-sm">
+            <div class="flex justify-between text-blue-100/70">
+              <span>Subtotal</span>
+              <span id="summary-subtotal" class="text-white">₦0.00</span>
+            </div>
+            <div class="flex justify-between text-blue-100/70">
+              <span>Delivery</span>
+              <span id="summary-delivery" class="text-white">₦1,500</span>
+            </div>
+          </div>
+
+          <div class="h-px bg-blue-900/50 my-5"></div>
+
+          <div class="flex justify-between font-['Manrope'] font-semibold text-white text-base mb-8">
+            <span>Total</span>
+            <span id="summary-total">₦0.00</span>
+          </div>
+
+          <button id="pay-btn"
+            class="w-full bg-blue-500 hover:bg-blue-400 text-[#0B1220] font-['Manrope'] font-semibold py-3.5 rounded-full transition-colors flex items-center justify-center gap-2">
+            🔒 Pay Now
+          </button>
+
+          <p class="font-['Manrope'] text-blue-100/40 text-xs text-center mt-4">
+            Secured by Stripe · Your details are encrypted
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+<script>
+  function initCheckoutAnimations() {
+    if (typeof gsap === 'undefined' || !document.querySelector('.checkout-summary')) return;
+
+    const checkoutTl = gsap.timeline();
+
+    checkoutTl
+      .from('.checkout-eyebrow', { opacity: 0, y: 16, duration: 0.5, ease: 'power2.out' })
+      .from('.checkout-heading', { opacity: 0, y: 24, duration: 0.7, ease: 'power3.out' }, '-=0.2')
+      .from('.checkout-steps', { opacity: 0, duration: 0.5, ease: 'power2.out' }, '-=0.3')
+      .from('.checkout-block', { opacity: 0, y: 20, duration: 0.6, ease: 'power2.out', stagger: 0.12 }, '-=0.2')
+      .from('.checkout-summary', { opacity: 0, x: 24, duration: 0.7, ease: 'power3.out' }, '-=0.6');
+  }
+
+  document.addEventListener('DOMContentLoaded', initCheckoutAnimations);
+</script>
+</body>
+</html>
